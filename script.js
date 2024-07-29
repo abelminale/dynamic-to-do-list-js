@@ -52,6 +52,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const removeButton = document.createElement('button');
         removeButton.textContent = 'Remove';
         removeButton.className = 'remove-btn';
+
+        // Assign onclick event to remove button
         removeButton.onclick = () => {
             taskList.removeChild(taskItem); // Remove the li element from taskList
             removeTask(taskText); // Update Local Storage
