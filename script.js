@@ -4,8 +4,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const taskInput = document.getElementById('task-input');
     const taskList = document.getElementById('task-list');
 
-    // Load tasks from Local Storage
-    loadTasks();
+  
+    loadTasks();  // Load tasks from Local Storage s
 
     // Add task button click event
     addButton.addEventListener('click', () => {
