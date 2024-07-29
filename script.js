@@ -1,6 +1,5 @@
- // Select DOM elements
 document.addEventListener('DOMContentLoaded', () => {
-    
+    // Select DOM elements
     const addButton = document.getElementById('add-task-btn');
     const taskInput = document.getElementById('task-input');
     const taskList = document.getElementById('task-list');
@@ -46,7 +45,8 @@ document.addEventListener('DOMContentLoaded', () => {
         removeButton.textContent = 'Remove';
         removeButton.className = 'remove-btn';
         removeButton.onclick = () => {
-            removeTask(taskItem, taskText);
+            taskList.removeChild(taskItem); // Remove the li element from taskList
+            removeTask(taskText); // Update Local Storage
         };
 
         // Append remove button and task item to list
@@ -64,10 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    function removeTask(taskItem, taskText) {
-        // Remove the task from the DOM
-        taskItem.remove();
-
+    function removeTask(taskText) {
         // Remove task from Local Storage
         const storedTasks = JSON.parse(localStorage.getItem('tasks') || '[]');
         const updatedTasks = storedTasks.filter(task => task !== taskText);
