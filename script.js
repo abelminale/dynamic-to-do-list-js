@@ -4,8 +4,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const taskInput = document.getElementById('task-input');
     const taskList = document.getElementById('task-list');
 
-  
-    loadTasks();  // Load tasks from Local Storage s
+    // Load tasks from Local Storage
+    loadTasks();
 
     // Add task button click event
     addButton.addEventListener('click', () => {
@@ -19,11 +19,19 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    /**
+     * Load tasks from Local Storage and display them in the task list
+     */
     function loadTasks() {
         const storedTasks = JSON.parse(localStorage.getItem('tasks') || '[]');
         storedTasks.forEach(taskText => addTask(taskText, false));
     }
 
+    /**
+     * Add a new task to the task list and optionally save it to Local Storage
+     * @param {string} taskText - The text of the task to add
+     * @param {boolean} save - Whether to save the task to Local Storage (default: true)
+     */
     function addTask(taskText, save = true) {
         // If no taskText is passed, get it from input field
         if (taskText === undefined) {
@@ -64,6 +72,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    /**
+     * Remove a task from Local Storage
+     * @param {string} taskText - The text of the task to remove
+     */
     function removeTask(taskText) {
         // Remove task from Local Storage
         const storedTasks = JSON.parse(localStorage.getItem('tasks') || '[]');
