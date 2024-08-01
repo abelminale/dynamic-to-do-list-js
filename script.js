@@ -30,10 +30,10 @@ document.addEventListener('DOMContentLoaded', () => {
             taskList.removeChild(li); // Remove the task from the list
         };
 
-        // Append the remove button to the list item
+        
         li.appendChild(removeButton);
 
-        // Append the list item to the task list
+   
         taskList.appendChild(li);
 
         // Clear the input field for new entries
