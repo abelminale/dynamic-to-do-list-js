@@ -29,21 +29,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
     /**
      * Add a new task to the task list and optionally save it to Local Storage
-     * @param {string} taskText - The text of the task to add
-     * @param {boolean} save - Whether to save the task to Local Storage (default: true)
+     * @param {string} [taskText] - The text of the task to add
+     * @param {boolean} [save=true] - Whether to save the task to Local Storage
      */
     function addTask(taskText, save = true) {
-      
-        if (taskText === '') {
-            alert('Please enter a task.');
-            return;
-        }
+        // If taskText is undefined, set it to the input value
         if (taskText === undefined) {
             taskText = taskInput.value.trim();
         }
 
         // Check if taskText is empty
-       
+        if (taskText === '') {
+            alert('Please enter a task.');
+            return;
+        }
 
         // Create task list item
         const taskItem = document.createElement('li');
